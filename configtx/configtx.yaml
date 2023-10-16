@@ -1,0 +1,28 @@
+
+Organizations:
+    - &OsqoNewOrg
+    
+        Name: osqoNewOrgMSP
+
+        # ID to load the MSP definition as
+        ID: osqoNewOrgMSP
+
+        MSPDir: ../../organizations/peerOrganizations/osqoNewOrg.methodbridge.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('osqoNewOrgMSP.admin', 'osqoNewOrgMSP.peer', 'osqoNewOrgMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('osqoNewOrgMSP.admin', 'osqoNewOrgMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('osqoNewOrgMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('osqoNewOrgMSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.osqoNewOrg.methodbridge.com
+              Port: 15051        
